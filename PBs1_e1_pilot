@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- Required meta tags -->
+<script> document.title = "Integration | JWPlayer";</script><title>Integration | JWPlayer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="icon" type="image/x-icon" href="images/favicon.svg">
+<!-- JS Files -->
+<script src="js/jquery.min.js"></script>
+<script src="js/hls.light.min.js"></script>
+<script src="js/provider.hlsjs.js"></script>
+<script src="js/jwplayer.js"></script>
+<!-- CSS Files -->
+<link rel="stylesheet" type="text/css" href="css/player_style.css">
+<link rel="stylesheet" href="./assets/css/box-player.css">
+<link rel="stylesheet" type="text/css" href="css/codenine_skin.css">
+<!-- JWPlayer License -->
+<script type="text/javascript">jwplayer.key="64HPbvSQorQcd52B8XFuhMtEoitbvY/EXJmMBfKcXZQU2Rnn";</script>
+</head>
+<body>
+    
+<div id="codenine_player"></div>
+<script>
+    var p2pConfig = {
+    logLevel: 'debug',
+    live: true, // set to false in VOD mode        
+    }
+    if (!Hls.P2pEngine.isMSESupported() || Hls.P2pEngine.getBrowser() === 'Mac-Safari') {
+    new Hls.P2pEngine.ServiceWorkerEngine(p2pConfig)
+    }    
+    jwplayer('codenine_player').setup({
+    file: 'https://yot.gnicirp.com/_v10/ad89e5ff617298329fc61e89120bcb47c4aaa2b4b21f114a4888c6da96404f189ea29f8f904b0c4f86541129757249e2afe4d931f1e0e1c0aa0656affe768c1b1c7c7d9adfe8d95ccbd6d5bf6ae931249af050a72ed4382b248fc10b2df273d87b0ca3714de947d39cd69b8a5a801fb47ae55bc779e759abc51801f453e46d94940c0a494ffebffa08bb0e07cdf7bbfc/playlist.m3u8',
+    autostart: false,
+    stretching:"uniform",
+    aspectratio: "16:9",
+    image: "images/2dEjX0XUq5PWEo9PH7HGtk0NzPj.jpg",
+    playbackRateControls: true,
+    sharing: {
+    sites: ["facebook","twitter","email","linkedin","pinterest"]
+    },
+    captions: {
+	color: "#fff",
+	fontSize: 16,
+	backgroundOpacity: 0,
+	fontfamily: "Helvetica",
+	edgeStyle: "raised"
+	},
+    tracks: [{
+	file: "./assets/subtitle/flamenco-blender.en.srt",
+	label: 'English',
+	kind: "captions",
+	"default": true,
+	},{ 
+	file: "subtitles/Prison-Break-S01E01-Pilot.srt",
+	label: 'Arabic',
+	kind: "captions",
+	},{ 
+	file: "./assets/subtitle/flamenco-blender.ja.srt",
+	label: 'Japanese',
+	kind: "captions",
+	},{ 
+	file: "./assets/subtitle/flamenco-blender.tr.srt",
+	label: 'Türkiye',
+	kind: "captions",
+	},{ 
+	file: "./assets/subtitle/flamenco-blender.fr.srt",
+	label: 'France',
+	kind: "captions",
+	},{ 
+	file: "./assets/subtitle/flamenco-blender.vi.srt",
+	label: 'Vietnam',
+	kind: "captions",
+	},{ 
+	file: "./assets/subtitle/flamenco-blender.tl.srt",
+	label: 'Philippines',
+	kind: "captions",
+	},{ 
+	file: "./assets/subtitle/flamenco-blender.hi.srt",
+	label: 'Hindi',
+	kind: "captions",
+	}
+	],
+    advertising: {
+        client: "vast",
+        schedule: {
+    adbreak1: {
+        offset : "pre",                         
+        tag: "#",
+        skipoffset: 5
+        },
+    adbreak2: {
+        offset: "10%",
+        tag: "#",
+        type: "nonlinear"
+        },
+        },
+        }, 
+	logo: {
+    file: "https://codenine.biz.id/integration/example-online/watermark.png",
+        position: "top-left",
+        link : "#",
+        },
+    skin: {
+        controlbar: {
+        "icons": "#05D1D2",
+        "iconsActive": "#fff"
+        },
+        timeslider: {
+        "progress": "#fff",
+        }
+        },
+    hlsjsdefault: true,
+    hlsjsConfig: {
+    p2pConfig
+    },
+    });
+</script>
+
+    <script>
+    setTimeout(function() {
+    $("#loader").delay(1000).fadeOut("slow");
+    $("#loader-wrapper").delay(1500).fadeOut("slow");
+    }, 2000);
+    </script>
+    
+
+</body></html>
